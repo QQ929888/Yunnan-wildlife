@@ -1,0 +1,159 @@
+/* 全局样式重置 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 页面背景图 */
+body {
+    background: url("plant.jpg") center/cover no-repeat fixed !important;
+    min-height: 100vh;
+    margin: 0;
+}
+
+/* 顶部导航栏样式（透明背景） */
+.navbar {
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    padding: 15px 25px;
+    color: white;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    position: relative;
+}
+
+.navbar .logo span {
+    font-size: 22px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+/* 导航菜单水平居中 */
+.nav-menu {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.nav-menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.nav-menu a.active {
+    font-weight: bold;
+    border-bottom: 2px solid white;
+}
+
+.user {
+    margin-left: auto;
+}
+
+/* 植物卡片容器 */
+.plant-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  padding: 30px 0;
+}
+
+/* 植物卡片样式 */
+.plant-card {
+  width: 90%;
+  max-width: 400px;
+  aspect-ratio: 1 / 1;
+  text-align: center;
+}
+
+.plant-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* 植物名称 */
+.plant-card p {
+    padding: 8px 0;
+    color: #FFFFFF;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.plant-card a {
+    text-decoration: none;
+}
+
+/* 鼠标悬停上浮 */
+.plant-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+    transition: all 0.3s ease;
+}
+
+/* 鼠标按压下沉 */
+.plant-card:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+/* ======================
+   用户下拉菜单
+====================== */
+.user-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.user-btn {
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 8px 12px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+/* 下拉菜单默认隐藏，JS 控制显示 */
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: #ffffff;
+  min-width: 140px;
+  border-radius: 4px;
+  z-index: 999;
+  border: 1px solid #e0e0e0;
+  display: none;
+}
+
+/* JS 控制显示 */
+.user-dropdown.active .dropdown-menu {
+  display: block;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 10px 15px;
+  color: #333;
+  text-decoration: none;
+  font-size: 14px;
+  text-shadow: none;
+}
+
+.dropdown-menu a:hover {
+  background: #f5f5f5;
+}
+
+/* 退出登录红色 */
+.logout-item {
+  color: #e53935 !important;
+}

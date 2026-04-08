@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>植物库</title>
+    <!-- 引入外部 CSS 文件 -->
+    <link rel="stylesheet"
+          href="sty2.css">
+</head>
+
+<body>
+
+    <!-- 顶部导航栏 -->
+    <nav class="navbar">
+        <div class="logo">
+            <span>云南珍稀植物库</span>
+        </div>
+        <ul class="nav-menu">
+            <li><a href="index2.html">首页</a ></li>
+            <li><a href="#" class="active">植物库</a ></li>
+            <li><a href="animal.html">动物库</a ></li>
+        </ul>
+<div class="user">
+  <!-- 点击触发下拉 -->
+  <div class="user-dropdown">
+    <span class="user-btn">用户</span>
+    <!-- 下拉菜单 -->
+    <div class="dropdown-menu">
+      <a href="#" class="history-item">收藏</a>
+      <a href="index.html" class="logout-item">退出登录</a>
+    </div>
+  </div>
+</div>
+    </nav>
+    <!-- 导航栏结束 -->
+<div class="plant-container">
+
+    <!-- 华盖木 -->
+    <div class="plant-card">
+        <a href="华盖木.html">
+            <img src="华盖木.jpg" alt="华盖木">
+            <p>华盖木</p >
+        </a >
+    </div>
+
+    <!-- 巧家五针松 -->
+    <div class="plant-card">
+        <a href="巧家五针松.html">
+            <img src="巧家五针松.jpg" alt="巧家五针松">
+            <p>巧家五针松</p >
+        </a >
+    </div>
+
+    <!-- 漾濞槭 -->
+    <div class="plant-card">
+        <a href="漾濞槭.html">
+            <img src="漾濞槭.jpg" alt="漾濞槭">
+            <p>漾濞槭</p >
+        </a >
+    </div>
+
+    <!-- 玉龙杓兰 -->
+    <div class="plant-card">
+        <a href="玉龙杓兰.html">
+            <img src="玉龙杓兰.jpg" alt="玉龙杓兰">
+            <p>玉龙杓兰</p >
+        </a >
+    </div>
+
+    <!-- 多岐苏铁 -->
+    <div class="plant-card">
+        <a href="多歧苏铁.html">
+            <img src="多歧苏铁.jpg" alt="多岐苏铁">
+            <p>多岐苏铁</p >
+        </a >
+    </div>
+
+    <!-- 云南澄广花 -->
+    <div class="plant-card">
+        <a href="云南澄广花.html">
+            <img src="云南澄广花.jpg" alt="云南澄广花">
+            <p>云南澄广花</p >
+        </a >
+    </div>
+
+    <!-- 云南野生菌 -->
+    <div class="plant-card">
+        <a href="云南野生菌.html">
+            <img src="R-C.jpg" alt="云南野生菌">
+            <p>云南野生菌</p >
+        </a >
+    </div>
+
+    </div>
+<script>
+const userBtn = document.querySelector('.user-btn');
+const dropdown = document.querySelector('.user-dropdown');
+
+userBtn.addEventListener('click', () => {
+  dropdown.classList.toggle('active');
+});
+
+// 点击页面其他地方关闭
+document.addEventListener('click', (e) => {
+  if (!dropdown.contains(e.target)) {
+    dropdown.classList.remove('active');
+  }
+});
+</script>
+</body>
+</html>
+
