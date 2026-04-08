@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>动物库</title>
+    <!-- 引入外部 CSS 文件 -->
+    <link rel="stylesheet"
+          href="sty1.css">
+</head>
+
+<body>
+
+    <!-- 顶部导航栏 -->
+    <nav class="navbar">
+        <div class="logo">
+            <span>云南珍稀动物库</span>
+        </div>
+        <ul class="nav-menu">
+            <li><a href="index2.html">首页</a ></li>
+            <li><a href="plant.html">植物库</a ></li>
+            <li><a href="#" class="active">动物库</a ></li>
+        </ul>
+<div class="user">
+  <!-- 点击触发下拉 -->
+  <div class="user-dropdown">
+    <span class="user-btn">用户</span>
+    <!-- 下拉菜单 -->
+    <div class="dropdown-menu">
+      <a href="#" class="history-item">收藏</a>
+      <a href="animal.html" class="logout-item">退出登录</a>
+    </div>
+  </div>
+</div>
+    </nav>
+    <!-- 导航栏结束 -->
+<div class="animal-container">
+
+    <!-- 滇金丝猴 -->
+    <div class="animal-card">
+        <a href="滇金丝猴.html">
+            <img src="滇金丝猴.jpg" alt="滇金丝猴">
+            <p>滇金丝猴</p >
+        </a >
+    </div>
+
+    <!-- 怒江金丝猴 -->
+    <div class="animal-card">
+        <a href="怒江金丝猴.html">
+            <img src="怒江金丝猴.jpg" alt="怒江金丝猴">
+            <p>怒江金丝猴</p >
+        </a >
+    </div>
+
+    <!-- 高黎贡白眉长臂猿 -->
+    <div class="animal-card">
+        <a href="高黎贡白眉长臂猿.html">
+            <img src="高黎贡白眉长臂猿.jpg" alt="高黎贡白眉长臂猿">
+            <p>高黎贡白眉长臂猿</p >
+        </a >
+    </div>
+
+    <!-- 西黑冠长臂猿 -->
+    <div class="animal-card">
+        <a href="西黑冠长臂猿.html">
+            <img src="西黑冠长臂猿.jpg" alt="西黑冠长臂猿">
+            <p>西黑冠长臂猿</p >
+        </a >
+    </div>
+
+    <!-- 绿孔雀 -->
+    <div class="animal-card">
+        <a href="绿孔雀.html">
+            <img src="绿孔雀.jpg" alt="绿孔雀">
+            <p>绿孔雀</p >
+        </a >
+    </div>
+
+    <!-- 滇池金线鲃 -->
+    <div class="animal-card">
+        <a href="滇池金线鲃.html">
+            <img src="滇池金线鲃.jpg" alt="滇池金线鲃">
+            <p>滇池金线鲃</p >
+        </a >
+    </div>
+
+    <!-- 哀牢髭蟾 -->
+    <div class="animal-card">
+        <a href="哀牢髭蟾.html">
+            <img src="哀牢髭蟾.jpg" alt="哀牢髭蟾">
+            <p>哀牢髭蟾</p >
+        </a >
+    </div>
+
+    <!-- 威氏鼷鹿 -->
+    <div class="animal-card">
+        <a href="威氏鼷鹿.html">
+            <img src="威氏鼷鹿.jpg" alt="威氏鼷鹿">
+            <p>威氏鼷鹿</p >
+        </a >
+       </div>
+    </div>
+<script>
+const userBtn = document.querySelector('.user-btn');
+const dropdown = document.querySelector('.user-dropdown');
+
+userBtn.addEventListener('click', () => {
+  dropdown.classList.toggle('active');
+});
+
+// 点击页面其他地方关闭
+document.addEventListener('click', (e) => {
+  if (!dropdown.contains(e.target)) {
+    dropdown.classList.remove('active');
+  }
+});
+</script>
+</body>
+</html>

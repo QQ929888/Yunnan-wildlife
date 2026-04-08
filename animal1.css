@@ -1,0 +1,267 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Microsoft Yahei", sans-serif;
+}
+
+body {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    transition: background-image 0.5s ease;
+    background-color: rgba(0,0,0,0.3);
+    background-blend-mode: multiply;
+}
+
+/* 顶部导航栏 */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color:rgba(255,255,255,0.2);
+    backdrop-filter:blur(8px);
+    -webkit-backdrop-filter:blur(8px);
+    border-bottom:1px solid rgba(255,255,255,0.1);
+    height: 70px;
+    color: #fff;
+    padding: 0 40px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    /* 让三个按钮均匀分布 */
+    justify-content: space-evenly;
+    width: 60%; /* 控制导航宽度，让它不挤 */
+}
+
+.nav-menu li a {
+    color: #fff;
+    text-decoration: none;
+    /* 加大间距，更美观 */
+    padding: 0 30px;
+    font-size: 16px;
+}
+
+
+.nav-menu li a.active {
+    color: #4CAF50;
+}
+
+/* 用户下拉菜单 */
+.user-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.user-btn {
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 8px 12px;
+}
+
+/* 下拉菜单默认隐藏 */
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: #fff;
+    min-width: 140px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    display: none; /* 默认隐藏 */
+    z-index: 999;
+}
+
+/* 下拉显示 */
+.user-dropdown.active .dropdown-menu {
+    display: block;
+}
+
+/* 下拉选项样式 */
+.dropdown-menu a {
+    display: block;
+    padding: 10px 15px;
+    color: #333;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.dropdown-menu a:hover {
+    background: #f5f5f5;
+}
+
+.logout-item {
+    color: #e53935 !important;
+}
+
+/* 底部联系栏 */
+.bottom-contact {
+    background-color:rgba(255,255,255,0.2);
+    backdrop-filter:blur(8px);
+    -webkit-backdrop-filter:blur(8px);
+    border-bottom:1px solid rgba(255,255,255,0.1);
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-size: 14px;
+}
+
+/* 主内容区 */
+.main-container {
+    display: flex;
+    min-height: calc(100vh - 120px);
+    padding: 20px;
+    gap: 20px;
+}
+
+/* 左侧介绍区 */
+.left-panel {
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-top:20px;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 8px;
+    background-color: transparent;
+    cursor: pointer;
+    position: relative;
+}
+
+.icon-circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: rgba(255,255,255,0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+}
+
+.name-group {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+}
+
+.cn-name {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.en-name {
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+.info-tooltip {
+    position: absolute;
+    left: 100%;
+    top: 0;
+    width: 300px;
+    padding: 15px;
+    background-color: #f0f0f0;
+    color: black;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    display: none;
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.info-item:hover .info-tooltip {
+    display: block;
+}
+
+/* 中间图片展示区 */
+.center-panel {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.main-image {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border: 2px solid white;
+    border-radius: 8px;
+}
+
+.image-slider {
+    display: flex;
+    gap: 10px;
+}
+
+.slider-item {
+    width: 80px;
+    height: 60px;
+    object-fit: cover;
+    border: 2px solid white;
+    border-radius: 4px;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.3s;
+}
+
+.slider-item.active, .slider-item:hover {
+    opacity: 1;
+    border-color: #004d26;
+}
+
+/* 右侧数据分析区（上下排列 + 透明背景） */
+.right-panel {
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.chart-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.chart {
+    width: 100%;
+    height: 200px;
+    background-color: transparent;
+    border-radius: 8px;
+    position: relative;
+}
+
+.chart canvas {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+.chart-desc {
+    text-align: center;
+    color: white;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+    font-size: 14px;
+}

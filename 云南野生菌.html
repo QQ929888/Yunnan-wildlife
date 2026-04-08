@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>云南珍稀动植物库</title>
+  <link rel="stylesheet"
+          href="sty5.css">
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  html, body {
+    width: 100%;
+    height: 100%;
+  }
+  body {
+    font-family: "Microsoft Yahei", Arial, sans-serif;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .bg-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+  }
+
+  body::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.4);
+    z-index: 1;
+  }
+  .navbar, .content, .footer {
+    position: relative;
+    z-index: 3;
+  }
+
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(255,255,255,0.15);
+    backdrop-filter: blur(8px);
+    padding: 20px 30px;
+    color: #fff;
+    width: 100%;
+  }
+  .title { font-size: 24px; font-weight: bold; }
+  .nav-links a {
+    color: #fff;
+    margin: 0 15px;
+    text-decoration: none;
+  }
+  .user {
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    position: relative;
+  }
+
+  .content {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 800px;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 3;
+  }
+  .cn-text {
+    font-size: 48px;
+    color: #fff;
+    font-weight: bold;
+  }
+  .en-text {
+    font-size: 18px;
+    color: #fff;
+    margin-top: 10px;
+  }
+
+  .round-img {
+    position: absolute;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid rgba(255,255,255,0.4);
+    z-index: 2;
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+  .round-img:hover {
+    transform: scale(1.08);
+  }
+
+  .img1 { width: 160px; height: 160px; top: 180px; left: 280px; }
+  .img2 { width: 140px; height: 140px; top: 180px; right: 280px; }
+  .img3 { width: 180px; height: 180px; bottom: 180px; left: 260px; }
+  .img4 { width: 130px; height: 130px; bottom: 180px; right: 260px; }
+  .img5 { width: 150px; height: 150px; left: 220px; top: 50%; transform: translateY(-50%); }
+  .img6 { width: 170px; height: 170px; right: 220px; top: 50%; transform: translateY(-50%); }
+
+  /* 左上角：牛肝菌 */
+  .mushroom-label {
+    position: absolute;
+    top: 220px;
+    left: 120px;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+  /* 左中：松茸 */
+  .mushroom-label2 {
+    position: absolute;
+    top: 50%;
+    left: 40px;
+    transform: translateY(-50%);
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+  /* 左下角：鸡枞菌 */
+  .mushroom-label3 {
+    position: absolute;
+    bottom: 220px;
+    left: 40px;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+  /* 右侧：见手青 */
+  .mushroom-label4 {
+    position: absolute;
+    top: 220px;
+    right: 120px;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  /* 右侧：白牛肝菌 */
+  .mushroom-label5 {
+    position: absolute;
+    top: 50%;
+    right: 40px;
+    transform: translateY(-50%);
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  /* 右侧：青头菌 */
+  .mushroom-label6 {
+    position: absolute;
+    bottom: 220px;
+    right: 120px;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .label-cn {
+    font-size: 36px;
+    color: #fff;
+    font-weight: bold;
+    font-family: "Microsoft Yahei", Arial, sans-serif;
+  }
+  .label-en {
+    font-size: 14px;
+    color: #fff;
+    font-family: "Microsoft Yahei", Arial, sans-serif;
+    margin-top: 4px;
+  }
+
+  .footer {
+    text-align: center;
+    padding: 15px 30px;
+    background-color: rgba(255,255,255,0.15);
+    backdrop-filter: blur(8px);
+    color: #fff;
+    width: 100%;
+    position: fixed;
+    bottom: 0; left: 0;
+  }
+
+  /* 弹窗样式 */
+  .mushroom-popup {
+    position: absolute;
+    width: 240px;
+    max-height: 180px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 12px;
+    padding: 16px;
+    color: #fff;
+    z-index: 9999 !important;
+    display: none;
+    overflow-y: auto;
+  }
+  .popup-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
+  .popup-desc {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  /* 六个弹窗位置 */
+  #popup1 { top: 180px; left: 480px; }
+  #popup2 { top: 180px; right: 480px; }
+  #popup3 { bottom: 180px; left: 480px; }
+  #popup4 { bottom: 180px; right: 480px; }
+  #popup5 { top: 50%; left: 420px; transform: translateY(-50%); }
+  #popup6 { top: 50%; right: 420px; transform: translateY(-50%); }
+
+  /* 用户菜单 */
+  .user-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 120px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    z-index: 10;
+    display: none;
+  }
+  .user-menu-item {
+    padding: 12px 16px;
+    color: #333;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  .user-menu-item:hover {
+    background: #f5f5f5;
+  }
+</style>
+</head>
+<body>
+
+<video class="bg-video" autoplay loop muted playsinline>
+  <source src="背景.mp4" type="video/mp4">
+</video>
+
+<div class="navbar">
+  <div class="title">云南珍稀动植物库</div>
+  <div class="nav-links">
+    <a href="index1.html">首页</a>
+    <a href="plant.html">植物库</a>
+    <a href="animal.html">动物库</a>
+  </div>
+<div class="user" onclick="document.getElementById('userMenu').style.display='block'">
+    用户
+    <div class="user-menu" id="userMenu" onmouseleave="this.style.display='none'">
+        <a href=" ">我的收藏</a >
+        <a href="index.html" class="logout">退出登录</a >
+    </div>
+</div>
+</div>
+
+<div class="content">
+  <div class="cn-text">云南野生菌</div>
+  <div class="en-text">Yunnan Wild Mushrooms</div>
+</div>
+
+<!-- 左上角：牛肝菌 -->
+<div class="mushroom-label">
+  <div class="label-cn">牛肝菌</div>
+  <div class="label-en">Boletus</div>
+</div>
+
+<!-- 左中：松茸 -->
+<div class="mushroom-label2">
+  <div class="label-cn">松茸</div>
+  <div class="label-en">Tricholoma Matsutake</div>
+</div>
+
+<!-- 左下角：鸡枞菌 -->
+<div class="mushroom-label3">
+  <div class="label-cn">鸡枞菌</div>
+  <div class="label-en">Termitomyces albuminosus</div>
+</div>
+
+<!-- 右侧：见手青 -->
+<div class="mushroom-label4">
+  <div class="label-cn">见手青</div>
+  <div class="label-en">Boletus luridus</div>
+</div>
+
+<!-- 右侧：白牛肝菌 -->
+<div class="mushroom-label5">
+  <div class="label-cn">白牛肝菌</div>
+  <div class="label-en">Boletus edulis</div>
+</div>
+
+<!-- 右侧：青头菌 -->
+<div class="mushroom-label6">
+  <div class="label-cn">青头菌</div>
+  <div class="label-en">Russula virescens</div>
+</div>
+
+<!-- 图片绑定正确弹窗 -->
+<img src="云南野生菌1.jpg"  alt="云南野生菌特写"
+     class="round-img img1"
+     onmouseover="showPopup(1)"
+     onmouseout="hidePopup(1)">
+
+<img src="9.jpg"  alt="云南野生菌特写"
+     class="round-img img2"
+     onmouseover="showPopup(2)"
+     onmouseout="hidePopup(2)">
+
+<img src="3.jpg"  alt="云南野生菌特写"
+     class="round-img img3"
+     onmouseover="showPopup(3)"
+     onmouseout="hidePopup(3)">
+
+<img src="4.jpg"  alt="云南野生菌特写"
+     class="round-img img4"
+     onmouseover="showPopup(4)"
+     onmouseout="hidePopup(4)">
+
+<img src="5.jpg"  alt="云南野生菌特写"
+     class="round-img img5"
+     onmouseover="showPopup(5)"
+     onmouseout="hidePopup(5)">
+
+<img src="6.jpg"   alt="云南野生菌特写"
+     class="round-img img6"
+     onmouseover="showPopup(6)"
+     onmouseout="hidePopup(6)">
+
+<!-- 弹窗内容已按顺序修正 -->
+<div id="popup1" class="mushroom-popup">
+  <div class="popup-title">牛肝菌</div>
+  <div class="popup-desc">牛肝菌是云南著名野生菌，肉质肥厚，味道鲜美，富含蛋白质、氨基酸等营养成分，是著名的食用菌。</div>
+</div>
+<div id="popup2" class="mushroom-popup">
+  <div class="popup-title">见手青</div>
+  <div class="popup-desc">见手青是牛肝菌的一种，受伤后会变青，味道鲜美，但必须彻底煮熟，否则可能中毒。</div>
+</div>
+<div id="popup3" class="mushroom-popup">
+  <div class="popup-title">鸡枞菌</div>
+  <div class="popup-desc">鸡枞菌与白蚁共生，肉质细嫩，香味浓郁，被誉为“菌中之王”，是云南最珍贵的野生菌之一。</div>
+</div>
+<div id="popup4" class="mushroom-popup">
+  <div class="popup-title">青头菌</div>
+  <div class="popup-desc">青头菌菌盖呈青绿色，口感脆嫩，味道清香，是常见的可食用野生菌，分布广泛。</div>
+</div>
+<div id="popup5" class="mushroom-popup">
+  <div class="popup-title">松茸</div>
+  <div class="popup-desc">松茸是名贵食用菌，生长在松栎等林地，香味独特，营养丰富，具有很高的食用和药用价值。</div>
+</div>
+<div id="popup6" class="mushroom-popup">
+  <div class="popup-title">白牛肝菌</div>
+  <div class="popup-desc">白牛肝菌又称美味牛肝菌，菌肉白色，味道鲜美，是世界著名的食用菌，广泛用于西餐。</div>
+</div>
+
+<div class="footer">
+  如有问题，请联系我们: 2958508614@qq.com
+</div>
+
+<script>
+  let currentPopup = null;
+
+  function showPopup(index) {
+    hideAllPopups();
+    const popup = document.getElementById('popup' + index);
+    if (popup) {
+      popup.style.display = 'block';
+      currentPopup = popup;
+    }
+  }
+
+  function hidePopup(index) {
+    const popup = document.getElementById('popup' + index);
+    if (popup) {
+      popup.style.display = 'none';
+    }
+  }
+
+  function hideAllPopups() {
+    const all = document.querySelectorAll('.mushroom-popup');
+    all.forEach(p => p.style.display = 'none');
+  }
+
+  function toggleUserMenu() {
+    const menu = document.getElementById('userMenu');
+    menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+  }
+
+  document.addEventListener('click', function(e) {
+    const user = document.querySelector('.user');
+    const menu = document.getElementById('userMenu');
+    if (!user.contains(e.target)) {
+      menu.style.display = 'none';
+    }
+  });
+</script>
+
+</body>
+</html>

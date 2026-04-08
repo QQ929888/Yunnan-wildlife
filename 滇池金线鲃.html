@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>滇池金线鲃</title>
+    <link rel="stylesheet" href="border.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js"></script>
+</head>
+<body>
+<!-- 顶部导航栏 -->
+<nav class="navbar">
+    <div class="logo">
+
+        <span>云南珍稀动植物库</span>
+    </div>
+    <ul class="nav-menu">
+        <li><a href="index2.html">首页</a></li>
+        <li><a href="plant.html">植物库</a></li>
+        <li><a href="animal.html">动物库</a></li>
+    </ul>
+
+    <div class="user">
+        <!-- 点击触发下拉 -->
+        <div class="user-dropdown">
+            <span class="user-btn">用户</span>
+            <!-- 下拉菜单 -->
+            <div class="dropdown-menu">
+                <a href="#" class="history-item">收藏</a>
+                <a href="index1.html" class="logout-item">退出登录</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- 主内容区 -->
+<div class="main-container">
+    <!-- 左侧介绍区 -->
+    <div class="left-panel">
+        <div class="info-item">
+            <div class="icon-circle">📇</div>
+            <div class="name-group">
+                <span class="cn-name">基础名片</span>
+                <span class="en-name">Basic Info</span>
+            </div>
+            <div class="info-tooltip">
+                <strong>滇池金线鲃</strong><br>
+                学名：Sinocyclocheilus grahami  ，别名：金线鱼、波罗鱼、小洞鱼、菠萝鱼
+
+                <br>地位：滇池特有珍稀土著鱼类，云南四大名鱼之首，中国特有洞穴鱼类<br>
+                保护级别：国家二级重点保护野生动物、极危 (CR)   <br>
+            </div>
+        </div>
+        <div class="info-item">
+            <div class="icon-circle">✨</div>
+            <div class="name-group">
+                <span class="cn-name">外形特征</span>
+                <span class="en-name">Morphology</span>
+            </div>
+            <div class="info-tooltip">
+                <strong>外形特征</strong>
+                <br>  小型淡水鱼，背部青灰或黄褐色，腹部淡黄，体侧散布不规则黑斑
+
+                <br>  头部布有白色感觉孔，连成线状纹路
+                <br>  体被圆鳞，侧线鳞（61–69 枚）显著大于其他鳞片，游动时侧线反光如金线
+            </div>
+        </div>
+        <div class="info-item">
+            <div class="icon-circle">🌍 </div>
+            <div class="name-group">
+                <span class="cn-name">分布与栖息</span>
+                <span class="en-name">Habitat</span>
+            </div>
+            <div class="info-tooltip">
+                <strong>分布与栖息</strong><br>
+                国内仅存于云南哀牢山、无量山，如景东、双柏、新平、屏边等地
+
+
+                <br>
+                 栖息于滇池周边未受污染的支流、龙潭、溶洞、暗河等封闭小水体<br>
+                 半穴居，喜清澈、低温、流水环境，对水质、水温、溶氧要求严苛<br>
+                <br>
+
+            </div>
+        </div>
+        <div class="info-item">
+            <div class="icon-circle">🍃 </div>
+            <div class="name-group">
+                <span class="cn-name">习性与繁殖</span>
+                <span class="en-name">habits</span>
+            </div>
+            <div class="info-tooltip">
+                <strong>习性与繁殖</strong><br>
+                集群活动，昼伏夜出，白天藏于洞穴，夜间外出觅食
+                <br>
+                食性：杂食性。幼鱼主食浮游动物、水生昆虫幼虫；成鱼捕食虾类、小鱼，兼食藻类<br>
+                繁殖：繁殖期于每年12月到次年3月，繁殖季洄游至溶洞、暗河的清泉流水处产卵<br>
+
+            </div>
+        </div>
+
+        <div class="info-item">
+            <div class="icon-circle">🛡️</div>
+            <div class="name-group">
+                <span class="cn-name">保护现状与措施</span>
+                <span class="en-name">measure</span>
+            </div>
+            <div class="info-tooltip">
+                <strong>保护现状与措施</strong><br>
+                <br>野生成熟个体约3,000–4,000尾，它是中国云南滇池流域特有物种，无国外分布
+
+
+
+                <br>保护：栖息地保护、人工繁育突破、增殖放流
+
+                <br>
+                威胁：污染、围湖造田、外来种入侵、过度捕捞<br>
+            </div>
+        </div>
+    </div>
+
+    <!-- 中间图片展示区 -->
+    <div class="center-panel">
+        <img src="滇池金线鲃1.jpg"
+             alt="滇池金线鲃" class="main-image" id="mainImg">
+        <div class="image-slider">
+            <img src="滇池金线鲃1.jpg" alt="滇池金线鲃特写"
+                 class="slider-item active" onclick="changeImage(this)">
+            <img src="滇池金线鲃2.jpg" alt="滇池金线鲃特写"
+                 class="slider-item" onclick="changeImage(this)">
+            <img src="滇池金线鲃3.jpg" alt="滇池金线鲃特写"
+                 class="slider-item" onclick="changeImage(this)">
+            <img src="滇池金线鲃4.jpg" alt="滇池金线鲃特写"
+                 class="slider-item" onclick="changeImage(this)">
+        </div>
+    </div>
+
+    <!-- 右侧数据分析区（上下两个图表） -->
+    <div class="right-panel">
+        <div class="chart-container">
+            <div class="chart" id="distributionChart">
+                <canvas id="distributionCanvas"></canvas>
+            </div>
+            <p class="chart-desc">滇池金线鲃种群数量变化监测</p >
+        </div>
+        <div class="chart-container">
+            <div class="chart" id="trendChart">
+                <canvas id="trendCanvas"></canvas>
+            </div>
+            <p class="chart-desc">滇池金线鲃种群数量增长趋势</p >
+        </div>
+    </div>
+</div>
+
+<!-- 底部联系栏 -->
+<div class="bottom-contact">
+    如有问题，请联系我们：2958508614@qq.com
+</div>
+
+<script>
+    // 切换主图与背景
+    function changeImage(el) {
+        const mainImg = document.getElementById('mainImg');
+        mainImg.src = el.src;
+        document.body.style.backgroundImage = `url(${el.src})`;
+        document.querySelectorAll('.slider-item').forEach(item => item.classList.remove('active'));
+        el.classList.add('active');
+    }
+
+    // 初始化背景图
+    document.body.style.backgroundImage = 'url(滇池金线鲃1.jpg)';
+
+    // 初始化图表（DOM加载完成后执行）
+    document.addEventListener('DOMContentLoaded', function() {
+        // 分布柱状图
+        const distributionCtx = document.getElementById('distributionCanvas').getContext('2d');
+        new Chart(distributionCtx, {
+            type: 'bar',
+            data: {
+                labels: ['2004年','2007年','2012年','2018年','2024年'],
+                datasets: [{
+                    label: '滇池金线鲃（只）',
+                    data: [200,300,500,1000,2500],
+                    backgroundColor: '#004d26',
+                    borderColor: '#00331a',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: { beginAtZero: true }
+                },
+                plugins: {
+                    legend: {
+                        labels: { color: 'white' }
+                    }
+                }
+            }
+        });
+
+        // 趋势折线图
+        const trendCtx = document.getElementById('trendCanvas').getContext('2d');
+        new Chart(trendCtx, {
+            type: 'line',
+            data: {
+                labels: ['2004-2007', '2007-2012', '2012-2018', '2018-2024'],
+                datasets: [{
+                    label: '滇池金线鲃（只）',
+                    data: [200,300,500,1000,2500],
+                    borderColor: '#004d26',
+                    backgroundColor: 'rgba(0,100,0,0.3)',
+                    fill: true,
+                    tension: 0.4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: { beginAtZero: true }
+                },
+                plugins: {
+                    legend: {
+                        labels: { color: 'white' }
+                    }
+                }
+            }
+        });
+    });
+</script>
+<script>
+    const userBtn = document.querySelector('.user-btn');
+    const dropdown = document.querySelector('.user-dropdown');
+
+    userBtn.addEventListener('click', () => {
+        dropdown.classList.toggle('active');
+    });
+
+    // 点击页面其他地方关闭
+    document.addEventListener('click', (e) => {
+        if (!dropdown.contains(e.target)) {
+            dropdown.classList.remove('active');
+        }
+    });
+</script>
+</body>
+</html>
