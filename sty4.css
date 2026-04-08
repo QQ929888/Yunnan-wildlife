@@ -76,6 +76,7 @@
     font-size: 14px;
 }
 
+/* 👇 这里是修改后的按钮样式，加了按压效果 */
 .login-btn {
     margin-top: 10px;
     width: 200px;
@@ -87,6 +88,19 @@
     font-size: 16px;
     color: white;
     cursor: pointer;
+
+    /* 关键：加过渡动画，让下沉/上浮更丝滑 */
+    transition: all 0.2s ease;
+}
+
+/* 点击按住时：下沉效果 */
+.login-btn:active {
+    transform: scale(0.95);   /* 轻微缩小，模拟按下去 */
+    opacity: 0.9;              /* 稍微变暗，增强真实感 */
+    /* 如果你想要“往下移”的下沉感，用下面这行替换上面两行：
+    transform: translateY(2px);
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+    */
 }
 
 .switch {

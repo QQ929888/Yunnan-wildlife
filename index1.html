@@ -1,59 +1,36 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>云南珍稀动植物库</title>
-    <link rel="stylesheet" href="sty3.css">
+    <title>登录/注册</title>
+    <link rel="stylesheet" href="sty4.css">
 </head>
 <body>
+<div class="content">
+    <div class="login-content">
+        <a href="#" class="banner-box"></a>
 
-<!-- 顶部导航栏 -->
-<nav class="navbar">
-    <div class="logo">
+        <!-- 登录框 -->
+        <div class="login-box" id="loginBox">
+            <h1>账号登录</h1>
+            <input type="text" placeholder="账号" id="loginUser">
+            <input type="password" placeholder="密码" id="loginPwd">
+            <button class="login-btn" id="loginBtn"><a href="index2.html">登录</a></button>
+            <p class="switch">没有账号？<span id="toReg">去注册</span></p>
+        </div>
 
-        <span>云南珍稀动植物库</span>
+        <!-- 注册框（默认隐藏） -->
+        <div class="reg-box" id="regBox">
+            <h1>账号注册</h1>
+            <input type="text" placeholder="请输入账号" id="regUser">
+            <input type="password" placeholder="请输入密码" id="regPwd">
+            <input type="password" placeholder="确认密码" id="regPwd2">
+            <button class="login-btn" id="regBtn">注册</button>
+            <p class="switch">已有账号？<span id="toLogin">去登录</span></p>
+        </div>
     </div>
-    <ul class="nav-menu">
-        <li><a href="#" class="active">首页</a></li>
-        <li><a href="#">植物库</a></li>
-        <li><a href="#">动物库</a></li>
+</div>
 
-    </ul>
-    <div class="user">
-        <a href="index.html">登录</a>
-        <a href="index.html">注册</a>
-    </div>
-</nav>
-
-<!-- 大图背景区域 -->
-<section class="banner">
-    <div class="banner-content">
-        <div class="banner-title">
-
-            <h1>云南珍稀动植物库</h1>
-        </div>
-        <p>云南素有"动植物王国"美誉，是中国生物多样性最丰富的省份，拥有全国50％以上的动植物种类，
-            其中大量物种为云南特有、珍稀濒危。本库系统收录云南境内珍稀、特有、濒危动植物资源，涵盖物种信息、
-            分布区域、保护现状、生态价值等内容，为科研、教育、保护提供权威数据支持，助力生物多样性保护与生态文明建设。</p>
-        <div class="search-box">
-<!--            <input type="text" placeholder="搜索">-->
-<!--            <button>搜索</button>-->
-        </div>
-        <!-- 两个卡片区域 -->
-        <section class="card-box">
-            <div class="card1">
-                <h3>植物库</h3>
-                <p>收录云南特有珍稀濒危植物，如华盖木、云南红豆杉等，展示独特植物资源与生态价值。</p>
-            </div>
-            <div class="card2">
-                <h3>动物库</h3>
-                <p>汇集滇金丝猴、亚洲象、绿孔雀等珍稀动物，呈现云南野生动物基因宝库的独特魅力。</p>
-            </div>
-           </section>
-        </div>
-
-</section>
-
+<script src="index.js"></script>
 </body>
 </html>
