@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录/注册</title>
+    <link rel="stylesheet" href="sty4.css">
+</head>
+<body>
+<div class="content">
+    <div class="login-content">
+        <a href="#" class="banner-box"></a>
+
+        <!-- 登录框 -->
+        <div class="login-box" id="loginBox">
+            <h1>账号登录</h1>
+            <input type="text" placeholder="账号" id="loginUser">
+            <input type="password" placeholder="密码" id="loginPwd">
+            <button class="login-btn" id="loginBtn"><a href="index2.html">登录</a></button>
+            <p class="switch">没有账号？<span id="toReg">去注册</span></p>
+        </div>
+
+        <!-- 注册框（默认隐藏） -->
+        <div class="reg-box" id="regBox">
+            <h1>账号注册</h1>
+            <input type="text" placeholder="请输入账号" id="regUser">
+            <input type="password" placeholder="请输入密码" id="regPwd">
+            <input type="password" placeholder="确认密码" id="regPwd2">
+            <button class="login-btn" id="regBtn">注册</button>
+            <p class="switch">已有账号？<span id="toLogin">去登录</span></p>
+        </div>
+    </div>
+</div>
+
+<script src="index.js"></script>
+</body>
+</html>
